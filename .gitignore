@@ -1,0 +1,5 @@
+build/
+deploy/
+logs/
+*.log
+*.tmp

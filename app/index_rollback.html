@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyApp</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* CSS volontairement cassé — test.sh ne détecte pas le rendu visuel */
+
+    body {
+      background: #ffffff;
+      color: #ffffff; /* texte blanc sur fond blanc → illisible */
+      font-family: monospace;
+      margin: 999px; /* marges absurdes */
+      overflow: hidden;
+    }
+
+    .container {
+      position: absolute;
+      top: -500px; /* container hors écran */
+      left: -500px;
+      transform: rotate(45deg); /* tout est de travers */
+    }
+
+    .badge {
+      font-size: 0.1px; /* texte invisible */
+      color: transparent;
+    }
+
+    h1 {
+      font-size: 0px; /* titre invisible */
+    }
+
+    .meta {
+      display: none; /* infos cachées */
+    }
+
+    .status {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="badge">● PIPELINE DEMO</div>
+
+    <!-- VERSION : ne pas supprimer ce commentaire, il est vérifié par test.sh -->
+    <h1>MyApp</h1>
+
+    <p class="subtitle">Static web application — bash deploy pipeline</p>
+
+    <div class="meta">
+      <div class="meta-item">
+        <span class="label">Version</span>
+        <span class="value" id="version">v2.0.0</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Environment</span>
+        <span class="value" id="env">local</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Deployed at</span>
+        <span class="value" id="date">--</span>
+      </div>
+    </div>
+
+    <div class="status">
+      <span>RUNNING</span>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('date').textContent = new Date().toLocaleDateString('fr-FR');
+  </script>
+
+</body>
+</html>

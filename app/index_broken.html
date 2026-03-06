@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyApp</title>
+
+  <!-- DEFAUT 1 : fichier CSS référencé mais inexistant -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="theme.css" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131a;
+      --border: #1e1e2e;
+      --accent: #00ff88;
+      --accent-dim: rgba(0, 255, 136, 0.08);
+      --text: #e2e2f0;
+      --text-muted: #6b6b8a;
+      --mono: 'Space Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-family: var(--mono);
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .meta {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .meta-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+
+    .meta-item .label {
+      color: var(--text-muted);
+      display: block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .meta-item .value { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="badge">● PIPELINE DEMO</div>
+
+    <!-- DEFAUT 2 : balise h1 non fermée -->
+    <h1>My<span>App</span>
+
+    <!-- DEFAUT 3 : commentaire VERSION manquant — détecté par test.sh -->
+
+    <p class="subtitle">Static web application — bash deploy pipeline</p>
+
+    <div class="meta">
+      <div class="meta-item">
+        <span class="label">Version</span>
+        <!-- DEFAUT 4 : numéro de version absent -->
+        <span class="value" id="version"></span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Environment</span>
+        <span class="value" id="env">local</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Deployed at</span>
+        <span class="value" id="date">--</span>
+    <!-- DEFAUT 5 : div meta-item non fermée -->
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById('date').textContent = new Date().toLocaleDateString('fr-FR');
+  </script>
+
+</body>
+</html>
