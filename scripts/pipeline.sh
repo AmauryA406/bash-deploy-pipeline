@@ -8,7 +8,7 @@ exit 1
 fi
 
 build() {
-echo "build"
+./scripts/build.sh
 }
 
 test() {
