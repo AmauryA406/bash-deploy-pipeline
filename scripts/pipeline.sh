@@ -21,7 +21,7 @@ deploy() {
 }
 
 rollback() {
-echo "rollback"
+./scripts/rollback.sh $ARG_2
 }
 
 logs() {
