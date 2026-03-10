@@ -12,7 +12,7 @@ build() {
 }
 
 test() {
-echo "test"
+./scripts/test.sh
 }
 
 deploy() {
