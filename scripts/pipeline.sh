@@ -1,6 +1,7 @@
 #!/bin/bash
 
 COMMAND=$1
+ARG_2=$2
 
 if [ -z "$COMMAND" ]; then
 echo "Usage: ./pipeline.sh {build|test|deploy|rollback|logs}"
@@ -16,7 +17,7 @@ test() {
 }
 
 deploy() {
-echo "deploy"
+./scripts/deploy.sh $ARG_2
 }
 
 rollback() {
