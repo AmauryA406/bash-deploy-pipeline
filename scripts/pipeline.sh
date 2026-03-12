@@ -25,7 +25,7 @@ rollback() {
 }
 
 logs() {
-echo "logs"
+./scripts/logs.sh
 }
 
 case $COMMAND in
