@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+if ./scripts/pipeline.sh test; then
+echo "Le commit peut etre effectué"
+exit 0
+else
+echo "Le commit ne peut pas etre effectué"
+exit 1
+fi
