@@ -1,0 +1,11 @@
+#!/bin/bash
+
+./scripts/pipeline.sh build
+
+if ./scripts/pipeline.sh test; then
+echo "Le push a été effectué avec succès"
+exit 0
+else
+echo "Le push ne peut pas etre effectué"
+exit 1
+fi
